@@ -91,6 +91,23 @@ class LinkedList {
         this.length--;
         return;
     }
+
+    _reverse() {
+        if ( ! this.head.next ) {
+            return this.head;
+        }
+        this.tail = this.head;
+        let firstNode = this.head;
+        let secondNode = firstNode.next;
+        while ( secondNode ) {
+            let tempNode = secondNode.next;
+            secondNode.next = firstNode;
+            firstNode = secondNode;
+            secondNode = tempNode;
+        }
+        this.head.next = null;
+        this.head = firstNode;
+    }
 }
 
 // Example usage:
@@ -105,4 +122,5 @@ myLinkedList._remove( 2 );
 myLinkedList._remove( 3 );
 
 console.log( myLinkedList.length ); // Output the length of the linked list.
+myLinkedList._reverse();
 console.log( myLinkedList.printList() ); // Output the values in the linked list.

@@ -105,6 +105,7 @@ class LinkedList {
         this.length--;
         return;
     }
+
 }
 
 // Example usage:
